@@ -44,7 +44,35 @@ public class Shapes {
         {"", "A", "A"}
     };
     
-    Map<Integer, String[][]> map = new HashMap<>();
-    
+    Map<Integer, String[][]> shapes = new HashMap<>();
+
+    public Shapes() {
+        shapes.put(1, shape_1);
+        shapes.put(2, shape_2);
+        shapes.put(3, shape_3);
+        shapes.put(4, shape_4);
+        shapes.put(5, shape_5);
+        shapes.put(6, shape_6);
+        shapes.put(7, shape_7);
+    }
+
+    public Map<Integer, String[][]> getShapes() {
+        return this.shapes;
+    }
+
+    @Override
+    public String toString() {
+        return null;
+    }
+
+    public void printShape(Map<Integer, String[][]> map, Integer key) {
+        String[][] s = map.get(key);
+        for(int i = 0; i < s.length; i++) {
+            for(int j = 0; j < s[i].length; j++) {
+                System.out.print(s[i][j] + "");
+            }
+            System.out.println();
+        }
+    }
 
 }
