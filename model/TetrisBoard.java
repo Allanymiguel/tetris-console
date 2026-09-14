@@ -16,7 +16,6 @@ public class TetrisBoard {
                 grid[i][j] = 0;
             }
         }
-
     }
 
     public void printBoard() {
