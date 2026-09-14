@@ -44,7 +44,7 @@ public class Shapes {
         {0, 1, 1}
     };
     
-    Map<Integer, int[][]> shapes = new HashMap<>();
+    static Map<Integer, int[][]> shapes = new HashMap<>();
 
     public Shapes() {
         shapes.put(1, shape_1);
@@ -57,7 +57,7 @@ public class Shapes {
     }
 
     public Map<Integer, int[][]> getShapes() {
-        return this.shapes;
+        return shapes;
     }
 
     public void printShape(Map<Integer, int[][]> map, Integer key) {
