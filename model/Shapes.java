@@ -4,50 +4,54 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Shapes {
+
+    private int fill = 1;
+    private int empty = 0;
+
     // quadrado, barra, T, L_direito, L_esquedo, cobra_direita, cobra_esquerda
     
-    private int[][] shape_1 = {
-        {1, 1},
-        {1, 1}
+    private int[][] shape_fill = {
+        {fill, fill},
+        {fill, fill}
     };
 
     private int[][] shape_2 = {
-        {1, 1, 1, 1}
+        {fill, fill, fill, fill}
     };
 
     private int[][] shape_3 = {
-        {1, 1, 1},
-        {0, 1, 0}
+        {fill, fill, fill},
+        {empty, fill, empty}
     };
     
     private int[][] shape_4 = {
-        {1},
-        {1},
-        {1},
-        {1, 1}
+        {fill},
+        {fill},
+        {fill},
+        {fill, fill}
     };
 
     private int[][] shape_5 = {
-        {0, 1},
-        {0, 1},
-        {0, 1},
-        {1, 1}
+        {empty, fill},
+        {empty, fill},
+        {empty, fill},
+        {fill, fill}
     };
 
     private int[][] shape_6 = {
-        {0, 1, 1},
-        {1, 1}
+        {empty, fill, fill},
+        {fill, fill}
     };
 
     private int[][] shape_7 = {
-        {1, 1, 0},
-        {0, 1, 1}
+        {fill, fill, empty},
+        {empty, fill, fill}
     };
     
     static Map<Integer, int[][]> shapes = new HashMap<>();
 
     public Shapes() {
-        shapes.put(1, shape_1);
+        shapes.put(fill, shape_fill);
         shapes.put(2, shape_2);
         shapes.put(3, shape_3);
         shapes.put(4, shape_4);
@@ -62,9 +66,9 @@ public class Shapes {
 
     public void printShape(Integer key) {
         int[][] s = shapes.get(key);
-        for(int i = 0; i < s.length; i++) {
-            for(int j = 0; j < s[i].length; j++) {
-                System.out.print(s[i][j] + 0);
+        for(int i = empty; i < s.length; i++) {
+            for(int j = empty; j < s[i].length; j++) {
+                System.out.print(s[i][j] + empty);
             }
             System.out.println();
         }
