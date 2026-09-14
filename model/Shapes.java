@@ -66,9 +66,9 @@ public class Shapes {
 
     public void printShape(Integer key) {
         int[][] s = this.shapes.get(key);
-        for(int i = empty; i < s.length; i++) {
-            for(int j = empty; j < s[i].length; j++) {
-                System.out.print(s[i][j] + empty);
+        for(int i = 0; i < s.length; i++) {
+            for(int j = 0; j < s[i].length; j++) {
+                System.out.print(s[i][j] + 0);
             }
             System.out.println();
         }
