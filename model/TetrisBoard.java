@@ -21,7 +21,7 @@ public class TetrisBoard {
     public void printBoard() {
         for(int i = 0; i < ROWS; i++) {
             for(int j = 0; j < COLUMNS; j++) {
-                System.out.println(grid[i][j]);
+                System.out.print(grid[i][j]);
             }
             System.out.println();
         }
