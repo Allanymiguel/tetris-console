@@ -6,45 +6,45 @@ import java.util.Map;
 public class Shapes {
     // quadrado, barra, T, L_direito, L_esquedo, cobra_direita, cobra_esquerda
     
-    private String[][] shape_1 = {
-        {"A", "A"},
-        {"A", "A"}
+    private int[][] shape_1 = {
+        {1, 1},
+        {1, 1}
     };
 
-    private String[][] shape_2 = {
-        {"A", "A", "A", "A"}
+    private int[][] shape_2 = {
+        {1, 1, 1, 1}
     };
 
-    private String[][] shape_3 = {
-        {"A", "A", "A"},
-        {"", "A", ""}
+    private int[][] shape_3 = {
+        {1, 1, 1},
+        {0, 1, 0}
     };
     
-    private String[][] shape_4 = {
-        {"A"},
-        {"A"},
-        {"A"},
-        {"A", "A"}
+    private int[][] shape_4 = {
+        {1},
+        {1},
+        {1},
+        {1, 1}
     };
 
-    private String[][] shape_5 = {
-        {"", "A"},
-        {"", "A"},
-        {"", "A"},
-        {"A", "A"}
+    private int[][] shape_5 = {
+        {0, 1},
+        {0, 1},
+        {0, 1},
+        {1, 1}
     };
 
-    private String[][] shape_6 = {
-        {"", "A", "A"},
-        {"A", "A"}
+    private int[][] shape_6 = {
+        {0, 1, 1},
+        {1, 1}
     };
 
-    private String[][] shape_7 = {
-        {"A", "A", ""},
-        {"", "A", "A"}
+    private int[][] shape_7 = {
+        {1, 1, 0},
+        {0, 1, 1}
     };
     
-    Map<Integer, String[][]> shapes = new HashMap<>();
+    Map<Integer, int[][]> shapes = new HashMap<>();
 
     public Shapes() {
         shapes.put(1, shape_1);
@@ -56,20 +56,15 @@ public class Shapes {
         shapes.put(7, shape_7);
     }
 
-    public Map<Integer, String[][]> getShapes() {
+    public Map<Integer, int[][]> getShapes() {
         return this.shapes;
     }
 
-    @Override
-    public String toString() {
-        return null;
-    }
-
-    public void printShape(Map<Integer, String[][]> map, Integer key) {
-        String[][] s = map.get(key);
+    public void printShape(Map<Integer, int[][]> map, Integer key) {
+        int[][] s = map.get(key);
         for(int i = 0; i < s.length; i++) {
             for(int j = 0; j < s[i].length; j++) {
-                System.out.print(s[i][j] + "");
+                System.out.print(s[i][j] + 0);
             }
             System.out.println();
         }
