@@ -60,8 +60,8 @@ public class Shapes {
         return shapes;
     }
 
-    public void printShape(Map<Integer, int[][]> map, Integer key) {
-        int[][] s = map.get(key);
+    public void printShape(Integer key) {
+        int[][] s = shapes.get(key);
         for(int i = 0; i < s.length; i++) {
             for(int j = 0; j < s[i].length; j++) {
                 System.out.print(s[i][j] + 0);
