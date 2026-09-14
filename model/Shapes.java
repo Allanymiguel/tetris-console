@@ -10,7 +10,7 @@ public class Shapes {
 
     // quadrado, barra, T, L_direito, L_esquedo, cobra_direita, cobra_esquerda
     
-    private int[][] shape_fill = {
+    private int[][] shape_1 = {
         {fill, fill},
         {fill, fill}
     };
@@ -48,10 +48,10 @@ public class Shapes {
         {empty, fill, fill}
     };
     
-    static Map<Integer, int[][]> shapes = new HashMap<>();
+    Map<Integer, int[][]> shapes = new HashMap<>();
 
     public Shapes() {
-        shapes.put(fill, shape_fill);
+        shapes.put(1, shape_1);
         shapes.put(2, shape_2);
         shapes.put(3, shape_3);
         shapes.put(4, shape_4);
@@ -65,7 +65,7 @@ public class Shapes {
     }
 
     public void printShape(Integer key) {
-        int[][] s = shapes.get(key);
+        int[][] s = this.shapes.get(key);
         for(int i = empty; i < s.length; i++) {
             for(int j = empty; j < s[i].length; j++) {
                 System.out.print(s[i][j] + empty);
