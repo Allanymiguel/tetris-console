@@ -64,6 +64,10 @@ public class Shapes {
         return shapes;
     }
 
+    public Map<Integer, int[][]> getMap() {
+        return this.shapes;
+    }
+
     public void printShape(Integer key) {
         int[][] s = this.shapes.get(key);
         for(int i = 0; i < s.length; i++) {
@@ -72,6 +76,13 @@ public class Shapes {
             }
             System.out.println();
         }
+    }
+
+    public int[][] getPiece(int idPiece) {
+        if(idPiece < 0 || idPiece > shapes.size())
+            return null;
+
+        return shapes.get(idPiece);
     }
 
 }
