@@ -1,11 +1,9 @@
 package model;
 
-import java.util.Map;
 
 public class TetrisBoard {
 
     Shapes s = new Shapes();
-    Map<Integer, int[][]> shapes = s.getShapes();
 
     private static final int ROWS = 20;
     private static final int COLUMNS = 10;
@@ -19,8 +17,6 @@ public class TetrisBoard {
             System.out.println("Piece does not exist.");
             return;
         }
-
-        int width = piece.length;
 
         for (int i = 0; i < piece.length; i++) {
             for (int j = 0; j < piece[i].length; j++) {
