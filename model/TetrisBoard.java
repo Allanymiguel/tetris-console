@@ -32,6 +32,12 @@ public class TetrisBoard {
 
     public void putPiece(int idPiece, int row, int col) {
         int[][] piece = s.getPiece(idPiece);
+
+        if(piece == null) {
+            System.out.println("\nPiece does not exist.");
+            return;
+        }
+        
         if(!canPlace(piece, row, col)) {
             System.out.println("\nNo place for this piece.");
             return;
