@@ -61,10 +61,6 @@ public class Shapes {
     }
 
     public Map<Integer, int[][]> getShapes() {
-        return shapes;
-    }
-
-    public Map<Integer, int[][]> getMap() {
         return this.shapes;
     }
 
