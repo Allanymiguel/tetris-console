@@ -20,14 +20,9 @@ public class TetrisBoard {
             return;
         }
 
-        int height = piece.length;
-        int width = piece[0].length;
-        
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < COLUMNS; j++) {
-                if(i < height) {
-                    grid[i][j] = piece
-                }
+        for (int i = 0; i < piece.length; i++) {
+            for (int j = 0; j < piece[i].length; j++) {
+                    grid[i][j] = piece[i][j];
             }
         }
 
