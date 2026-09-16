@@ -30,30 +30,19 @@ public class TetrisBoard {
         return true;
     }
 
-    public void putPiece(int idPiece) {
+    public void putPiece(int idPiece, int row, int col) {
         int[][] piece = s.getPiece(idPiece);
-        if(piece == null) {
-            System.out.println("Piece does not exist.");
+        if(canPlace(piece, row, col) == false) {
+            System.out.println("No place for this piece.");
             return;
-        }
-
-        int[][] gridTemp = new int[ROWS][COLUMNS];
-
-        for(int i = 0; i < ROWS; i++) {
-            for(int j = 0; j < COLUMNS; j++) {
-                gridTemp[i][j] = grid[i][j];
-            }
         }
 
         for (int i = 0; i < piece.length; i++) {
             for (int j = 0; j < piece[i].length; j++) {
-                    if(piece[i][j] != 0 && gridTemp[i][j] != 0) 
-                        return;
-                    else if(piece[i][j] != 0)
-                        gridTemp[i][j] = piece[i][j];
+                if(piece[i][j] != 0)
+                    grid[i][j] = piece[i][j];
             }
         }
-        grid = gridTemp;
     }
 
 
