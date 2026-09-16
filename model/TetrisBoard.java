@@ -32,7 +32,7 @@ public class TetrisBoard {
 
     public void putPiece(int idPiece, int row, int col) {
         int[][] piece = s.getPiece(idPiece);
-        if(canPlace(piece, row, col) == false) {
+        if(!canPlace(piece, row, col)) {
             System.out.println("No place for this piece.");
             return;
         }
