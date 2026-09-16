@@ -11,6 +11,25 @@ public class TetrisBoard {
 
 
 
+    private boolean canPlace(int[][] piece, int row, int col) {
+        for (int i = 0; i < piece.length; i++) {
+            for (int j = 0; j < piece[i].length; j++) {
+                if (piece[i][j] == 0) continue;
+
+                int targetRow = row + i;
+                int targetCol = col + j;
+
+                if (targetRow < 0 || targetRow >= ROWS || targetCol < 0 || targetCol >= COLUMNS)
+                    return false;
+
+                if (grid[targetRow][targetCol] != 0)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
     public void putPiece(int idPiece) {
         int[][] piece = s.getPiece(idPiece);
         if(piece == null) {
