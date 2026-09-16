@@ -3,7 +3,7 @@ package model;
 
 public class TetrisBoard {
 
-    Shapes s = new Shapes();
+    private Shapes s = new Shapes();
 
     private static final int ROWS = 20;
     private static final int COLUMNS = 10;
@@ -37,7 +37,7 @@ public class TetrisBoard {
             System.out.println("\nPiece does not exist.");
             return;
         }
-        
+
         if(!canPlace(piece, row, col)) {
             System.out.println("\nNo place for this piece.");
             return;
@@ -67,6 +67,10 @@ public class TetrisBoard {
             }
             System.out.println();
         }
+    }
+
+    public int[][] getGrid() {
+        return this.grid;
     }
     
 }
