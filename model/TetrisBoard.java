@@ -28,8 +28,10 @@ public class TetrisBoard {
 
         for (int i = 0; i < piece.length; i++) {
             for (int j = 0; j < piece[i].length; j++) {
-                    if(gridTemp[i][j] != 0) return;
-                    gridTemp[i][j] = piece[i][j];
+                    if(piece[i][j] != 0 && gridTemp[i][j] != 0) 
+                        return;
+                    else if(piece[i][j] != 0)
+                        gridTemp[i][j] = piece[i][j];
             }
         }
         grid = gridTemp;
