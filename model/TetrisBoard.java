@@ -40,7 +40,7 @@ public class TetrisBoard {
         for (int i = 0; i < piece.length; i++) {
             for (int j = 0; j < piece[i].length; j++) {
                 if(piece[i][j] != 0)
-                    grid[i][j] = piece[i][j];
+                    grid[row + i][col + j] = piece[i][j];
             }
         }
     }
