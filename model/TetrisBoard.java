@@ -18,11 +18,15 @@ public class TetrisBoard {
             return;
         }
 
+        int[][] gridTemp = grid;
+
         for (int i = 0; i < piece.length; i++) {
             for (int j = 0; j < piece[i].length; j++) {
-                    grid[i][j] = piece[i][j];
+                    if(gridTemp[i][j] != 0) return;
+                    gridTemp[i][j] = piece[i][j];
             }
         }
+        grid = gridTemp;
     }
 
 
