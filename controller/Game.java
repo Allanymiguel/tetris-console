@@ -104,13 +104,12 @@ public class Game {
 
     private int[][] rotateMatrix(int[][] piece) {
         int rows = piece.length;
-        int cols = 0;
-        for (int[] r : piece) cols = Math.max(cols, r.length);
+        int cols = piece[0].length;
 
         int[][] rotated = new int[cols][rows];
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < piece[i].length; j++) {
+            for (int j = 0; j < cols; j++) {
                 rotated[j][rows - 1 - i] = piece[i][j];
             }
         }
