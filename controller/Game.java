@@ -102,7 +102,34 @@ public class Game {
         tryMove(currentRow, currentCol + 1);
     }
 
+    private int[][] rotateMatrix(int[][] piece) {
+        int rows = piece.length;
+        int cols = 0;
+        for (int[] r : piece) cols = Math.max(cols, r.length);
+
+        int[][] rotated = new int[cols][rows];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < piece[i].length; j++) {
+                rotated[j][rows - 1 - i] = piece[i][j];
+            }
+        }
+
+        return rotated;
+    }
+
     public void rotate() {
+        int[][] rotated = rotateMatrix(currentPiece);
+
+        board.clearPiece(currentPiece, currentRow, currentCol);
+
+        if(board.putPiece(rotated, currentRow, currentCol)) {
+            currentPiece = rotated;
+            render();
+            return;
+        }
+
+        board.putPiece(currentPiece, currentRow, currentCol);
     }
 
     public boolean isGameOver() {
