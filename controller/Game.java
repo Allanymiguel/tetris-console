@@ -1,7 +1,7 @@
 package controller;
 
+import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 import model.Shapes;
 import model.TetrisBoard;
@@ -10,15 +10,17 @@ public class Game {
 
     private TetrisBoard board;
     private Shapes shapes;
-
+    
     private int currentPieceId;
     private int currentRow;
     private int currentCol;
     private int[][] currentPiece;
-
+    
     private boolean gameOver;
-
+    
     private Scanner scan = new Scanner(System.in);
+
+    Random random = new Random();
 
     public Game() {
         this.board = new TetrisBoard();
@@ -29,13 +31,9 @@ public class Game {
 
         System.out.println("The game starts now!\n\n");
 
+        sleep();
         render();
-
-        try {
-            Thread.sleep(2000);
-        } catch(InterruptedException e) {
-            e.printStackTrace();
-        }
+        sleep();
 
         while (!isGameOver()) {
 
@@ -66,10 +64,13 @@ public class Game {
     }
 
     private boolean spawnPiece() {
+        currentPieceId = random.nextInt(1, 8);
+        currentRow = 0;
+        currentCol = 0;
         currentPiece = shapes.getPiece(currentPieceId);
 
-        if(!board.putPiece(currentPieceId, currentRow, currentCol)) {
-            gameOver = false;
+        if(!board.putPiece(currentPiece, currentRow, currentCol)) {
+            gameOver = true;
             return false;
         }
         render();
@@ -136,7 +137,16 @@ public class Game {
     }
 
     private void render() {
-        System.out.println(board.getGrid());
+        board.printBoard();
+        System.out.println();
+    }
+
+    private void sleep() {
+        try {
+            Thread.sleep(2000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
