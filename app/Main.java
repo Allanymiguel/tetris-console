@@ -1,14 +1,14 @@
 package app;
 
 
+import controller.Game;
 import model.TetrisBoard;
 
 public class Main {
     public static void main(String[] args) {
-        TetrisBoard tb = new TetrisBoard();
+        Game game = new Game();
 
-        tb.putPiece(6);
-        tb.printBoard();
+        game.start();
 
     }
 }
