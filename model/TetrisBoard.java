@@ -38,6 +38,10 @@ public class TetrisBoard {
             return false;
         }
 
+        return putPiece(piece, row, col);
+    }
+
+    public boolean putPiece(int[][] piece, int row, int col) {
         if(!canPlace(piece, row, col)) {
             System.out.println("\nNo place for this piece.");
             return false;
@@ -51,6 +55,15 @@ public class TetrisBoard {
         }
 
         return true;
+    }
+
+    public void clearPiece(int[][] piece, int row, int col) {
+        for (int i = 0; i < piece.length; i++) {
+            for (int j = 0; j < piece[i].length; j++) {
+                if(piece[i][j] != 0)
+                    grid[row + i][col + j] = 0;
+            }
+        }
     }
 
 
