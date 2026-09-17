@@ -66,6 +66,8 @@ public class Game {
     }
 
     private boolean spawnPiece() {
+        currentPiece = shapes.getPiece(currentPieceId);
+
         if(!board.putPiece(currentPieceId, currentRow, currentCol)) {
             gameOver = false;
             return false;
@@ -74,7 +76,22 @@ public class Game {
         return true;
     }
 
+    private boolean tryMove(int newRow, int newCol) {
+        board.clearPiece(currentPiece, currentRow, currentCol);
+
+        if(board.putPiece(currentPiece, newRow, newCol)) {
+            currentRow = newRow;
+            currentCol = newCol;
+            render();
+            return true;
+        }
+
+        board.putPiece(currentPiece, currentRow, currentCol);
+        return false;
+    }
+
     public void moveDown() {
+        tryMove(currentRow + 1, currentCol);
     }
 
     public void moveLeft() {
