@@ -14,12 +14,15 @@ public class Game {
     private int currentPieceId;
     private int currentRow;
     private int currentCol;
+    private int[][] currentPiece;
 
     private boolean gameOver;
 
     private Scanner scan = new Scanner(System.in);
 
     public Game() {
+        this.board = new TetrisBoard();
+        this.shapes = new Shapes();
     }
 
     public void start() {
