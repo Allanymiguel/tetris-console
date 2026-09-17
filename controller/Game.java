@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.concurrent.TimeUnit;
+
 import model.Shapes;
 import model.TetrisBoard;
 
@@ -18,6 +20,18 @@ public class Game {
     }
 
     public void start() {
+
+        System.out.println("The game starts now!\n\n");
+
+        render();
+
+        try {
+            Thread.sleep(2000);
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        spawnPiece();
     }
 
     private void spawnPiece() {
@@ -40,6 +54,7 @@ public class Game {
     }
 
     private void render() {
+        System.out.println(board.getGrid());
     }
 
 }
