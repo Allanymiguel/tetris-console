@@ -37,15 +37,16 @@ public class Game {
 
         while (!isGameOver()) {
 
-            while(!spawnPiece() || !isPiecePlaced()) {
+            if(!spawnPiece()) break;
+
+            while(!isPiecePlaced()) {
 
                 String move = scan.nextLine();
 
                 if(move.equals("w")) rotate();
-                if(move.equals("s")) moveDown();
-                if(move.equals("a")) moveLeft();
-                if(move.equals("d")) moveRight();
-                else continue;
+                else if(move.equals("s")) moveDown();
+                else if(move.equals("a")) moveLeft();
+                else if(move.equals("d")) moveRight();
 
             }
         }
@@ -54,13 +55,11 @@ public class Game {
     }
 
     public boolean isPiecePlaced() {
-        int[][] grid = board.getGrid();
-        for(int  i = currentCol; i <= grid[currentRow].length; i++) {
-            if(grid[currentRow + 1][i] != 1)
-                return true;
-        }
+        board.clearPiece(currentPiece, currentRow, currentCol);
+        boolean canMoveDown = board.canPlace(currentPiece, currentRow + 1, currentCol);
+        board.putPiece(currentPiece, currentRow, currentCol);
 
-        return false;
+        return !canMoveDown;
     }
 
     private boolean spawnPiece() {

@@ -11,7 +11,7 @@ public class TetrisBoard {
 
 
 
-    private boolean canPlace(int[][] piece, int row, int col) {
+    public boolean canPlace(int[][] piece, int row, int col) {
         for (int i = 0; i < piece.length; i++) {
             for (int j = 0; j < piece[i].length; j++) {
                 if (piece[i][j] == 0) continue;
