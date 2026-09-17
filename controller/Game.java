@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import model.Shapes;
@@ -16,6 +17,8 @@ public class Game {
 
     private boolean gameOver;
 
+    private Scanner scan = new Scanner(System.in);
+
     public Game() {
     }
 
@@ -30,10 +33,18 @@ public class Game {
         } catch(InterruptedException e) {
             e.printStackTrace();
         }
-        while (!isGameOver()) {
-            spawnPiece();
 
-            while(!isPiecePlaced()) {
+        while (!isGameOver()) {
+
+            while(!spawnPiece() || !isPiecePlaced()) {
+
+                String move = scan.nextLine();
+
+                if(move.equals("w")) rotate();
+                if(move.equals("s")) moveDown();
+                if(move.equals("a")) moveLeft();
+                if(move.equals("d")) moveRight();
+                else continue;
 
             }
         }
@@ -51,9 +62,13 @@ public class Game {
         return false;
     }
 
-    private void spawnPiece() {
-        board.putPiece(currentPieceId, currentRow, currentCol);
-        while()
+    private boolean spawnPiece() {
+        if(!board.putPiece(currentPieceId, currentRow, currentCol)) {
+            gameOver = false;
+            return false;
+        }
+        render();
+        return true;
     }
 
     public void moveDown() {
