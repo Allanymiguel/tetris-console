@@ -30,11 +30,30 @@ public class Game {
         } catch(InterruptedException e) {
             e.printStackTrace();
         }
+        while (!isGameOver()) {
+            spawnPiece();
 
-        spawnPiece();
+            while(!isPiecePlaced()) {
+
+            }
+        }
+        
+        System.out.println("\n\n\nThanks for playing!");
+    }
+
+    public boolean isPiecePlaced() {
+        int[][] grid = board.getGrid();
+        for(int  i = currentCol; i <= grid[currentRow].length; i++) {
+            if(grid[currentRow + 1][i] != 1)
+                return true;
+        }
+
+        return false;
     }
 
     private void spawnPiece() {
+        board.putPiece(currentPieceId, currentRow, currentCol);
+        while()
     }
 
     public void moveDown() {
