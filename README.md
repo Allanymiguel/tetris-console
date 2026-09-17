@@ -1,6 +1,6 @@
 # tetris-console
 
-A simple Tetris implementation in Java, running in the console.
+A simple Tetris implementation in Java, running in the console. I know, nothing practical, but that's just not the point of this.
 
 ## Project structure
 
