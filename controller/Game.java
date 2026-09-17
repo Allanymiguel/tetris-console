@@ -99,6 +99,7 @@ public class Game {
     }
 
     public void moveRight() {
+        tryMove(currentRow, currentCol + 1);
     }
 
     public void rotate() {
