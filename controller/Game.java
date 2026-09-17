@@ -95,6 +95,7 @@ public class Game {
     }
 
     public void moveLeft() {
+        tryMove(currentRow, currentCol - 1);
     }
 
     public void moveRight() {
