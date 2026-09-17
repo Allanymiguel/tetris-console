@@ -75,7 +75,7 @@ public class Shapes {
     }
 
     public int[][] getPiece(int idPiece) {
-        if(idPiece < 0 || idPiece > shapes.size())
+        if(idPiece < 1 || idPiece > shapes.size())
             return null;
 
         return shapes.get(idPiece);
