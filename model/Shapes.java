@@ -25,9 +25,9 @@ public class Shapes {
     };
     
     private int[][] shape_4 = {
-        {fill},
-        {fill},
-        {fill},
+        {fill, empty},
+        {fill, empty},
+        {fill, empty},
         {fill, fill}
     };
 
@@ -40,7 +40,7 @@ public class Shapes {
 
     private int[][] shape_6 = {
         {empty, fill, fill},
-        {fill, fill}
+        {fill, fill, empty}
     };
 
     private int[][] shape_7 = {
